@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CalculadoraFiniquito from '../components/CalculadoraFiniquito.astro';
+
+const proximos = [
+  'Qué es el finiquito y qué debe incluir por ley',
+  'Cómo calcular el finiquito paso a paso',
+  'Cuánto tarda la empresa en pagar el finiquito',
+  'Baja por enfermedad: cómo afecta a tu finiquito',
+];
+---
+<Layout title="Finiquitos" description="Qué es el finiquito, qué debe incluir y calculadora para estimarlo.">
+  <div class="article">
+    <p class="eyebrow">Categoría</p>
+    <h1>Finiquitos</h1>
+    <p>El finiquito es la liquidación de todo lo que la empresa te debe al terminar la relación laboral: días trabajados, vacaciones no disfrutadas y parte proporcional de pagas extra.</p>
+  </div>
+
+  <div class="wrap" style="max-width: 760px; margin: 0 auto 48px;">
+    <CalculadoraFiniquito />
+  </div>
+
+  <div class="article" style="padding-top:0;">
+    <h2>Próximas guías</h2>
+    <ul>
+      {proximos.map((t) => <li>{t}</li>)}
+    </ul>
+  </div>
+</Layout>

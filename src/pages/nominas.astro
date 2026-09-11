@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const proximos = [
+  'Nómina explicada: qué es cada concepto',
+  'Errores más comunes en una nómina y cómo detectarlos',
+  'Qué son las deducciones por IRPF y Seguridad Social',
+  'Complementos salariales: cuáles son obligatorios',
+];
+---
+<Layout title="Nóminas" description="Cómo leer e interpretar tu nómina en España.">
+  <div class="article">
+    <p class="eyebrow">Categoría</p>
+    <h1>Nóminas</h1>
+    <p>Aprende a leer tu nómina línea por línea: qué conceptos son obligatorios, qué se descuenta y cómo detectar errores.</p>
+    <div class="legal-note">
+      Sección en construcción. Próximamente, guías detalladas con ejemplos reales de nómina.
+    </div>
+    <h2>Próximas guías</h2>
+    <ul>
+      {proximos.map((t) => <li>{t}</li>)}
+    </ul>
+  </div>
+</Layout>

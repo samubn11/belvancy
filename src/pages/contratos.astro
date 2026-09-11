@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const proximos = [
+  'Tipos de contrato de trabajo en España',
+  'Periodo de prueba: derechos y duración máxima',
+  'Cuándo un contrato temporal pasa a ser indefinido',
+  'Contrato de formación en alternancia: qué es',
+];
+---
+<Layout title="Contratos" description="Tipos de contrato laboral, periodo de prueba y conversión a indefinido.">
+  <div class="article">
+    <p class="eyebrow">Categoría</p>
+    <h1>Contratos</h1>
+    <p>Qué tipos de contrato existen, qué implica cada uno y cuáles son tus derechos durante el periodo de prueba.</p>
+    <div class="legal-note">
+      Sección en construcción. Próximamente, guías detalladas por tipo de contrato.
+    </div>
+    <h2>Próximas guías</h2>
+    <ul>
+      {proximos.map((t) => <li>{t}</li>)}
+    </ul>
+  </div>
+</Layout>

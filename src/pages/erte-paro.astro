@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const proximos = [
+  'ERTE: derechos del trabajador y cálculo de la prestación',
+  'Cuánto tiempo tengo para cobrar el paro tras un despido',
+  'Requisitos para cobrar el paro',
+  'Qué pasa con el paro si rechazas una oferta de empleo',
+];
+---
+<Layout title="ERTE y paro" description="Requisitos y cuantías del ERTE y la prestación por desempleo.">
+  <div class="article">
+    <p class="eyebrow">Categoría</p>
+    <h1>ERTE y paro</h1>
+    <p>Requisitos, plazos y cuantías de la prestación por desempleo y del ERTE.</p>
+    <div class="legal-note">
+      Sección en construcción. Próximamente, guías detalladas y simulador de prestación.
+    </div>
+    <h2>Próximas guías</h2>
+    <ul>
+      {proximos.map((t) => <li>{t}</li>)}
+    </ul>
+  </div>
+</Layout>

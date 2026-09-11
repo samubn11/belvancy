@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CalculadoraFiniquito from '../components/CalculadoraFiniquito.astro';
+
+const categorias = [
+  { href: '/despidos', nombre: 'Despidos', desc: 'Objetivo, improcedente, disciplinario, plazos e indemnización.' },
+  { href: '/finiquitos', nombre: 'Finiquitos', desc: 'Qué debe incluir, cómo se calcula, cuándo se cobra.' },
+  { href: '/nominas', nombre: 'Nóminas', desc: 'Conceptos, deducciones, errores habituales.' },
+  { href: '/contratos', nombre: 'Contratos', desc: 'Tipos de contrato, periodo de prueba, conversión a indefinido.' },
+  { href: '/seguridad-social', nombre: 'Seguridad Social', desc: 'Bajas, prestaciones, cotización.' },
+  { href: '/erte-paro', nombre: 'ERTE y paro', desc: 'Requisitos, cuantías, plazos para solicitar.' },
+];
+---
+<Layout title="Inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Derecho laboral explicado sin rodeos.</h1>
+        <p class="lede">Guías claras sobre despidos, finiquitos, nóminas y prestaciones en España, con las calculadoras que necesitas antes de firmar nada.</p>
+        <p class="disclaimer">Contenido informativo elaborado por un estudiante de Derecho Laboral y Relaciones Laborales. No sustituye el asesoramiento de un graduado social o abogado.</p>
+      </div>
+      <CalculadoraFiniquito />
+    </div>
+  </section>
+
+  <section class="index">
+    <div class="wrap">
+      <h2>Explora por tema</h2>
+      <ul class="toc">
+        {categorias.map((c) => (
+          <li>
+            <a href={c.href}>{c.nombre}</a>
+            <span class="desc">{c.desc}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const proximos = [
+  'Baja por enfermedad común: requisitos y duración',
+  'Cómo se calcula la base reguladora',
+  'Baja por maternidad/paternidad: qué cobras y durante cuánto',
+  'Cómo solicitar el certificado de vida laboral',
+];
+---
+<Layout title="Seguridad Social" description="Bajas, prestaciones y cotización a la Seguridad Social.">
+  <div class="article">
+    <p class="eyebrow">Categoría</p>
+    <h1>Seguridad Social</h1>
+    <p>Bajas médicas, prestaciones y cotización: cómo funciona el sistema y qué te corresponde en cada situación.</p>
+    <div class="legal-note">
+      Sección en construcción. Próximamente, guías detalladas sobre prestaciones.
+    </div>
+    <h2>Próximas guías</h2>
+    <ul>
+      {proximos.map((t) => <li>{t}</li>)}
+    </ul>
+  </div>
+</Layout>

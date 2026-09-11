@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+
+const { title, description } = Astro.props;
+const fullTitle = title ? `${title} · Belvancy` : 'Belvancy — Derecho laboral explicado sin rodeos';
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description || 'Guías claras y calculadoras sobre despidos, finiquitos, nóminas y prestaciones en España.'} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Sustituye ca-pub-XXXXXXXXXXXXXXXX por tu ID real cuando AdSense te apruebe -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a href="/" class="brand">Belvancy<small>Derecho laboral, explicado</small></a>
+      <nav class="main-nav">
+        <a href="/despidos">Despidos</a>
+        <a href="/finiquitos">Finiquitos</a>
+        <a href="/nominas">Nóminas</a>
+        <a href="/contratos">Contratos</a>
+        <a href="/seguridad-social">Seguridad Social</a>
+        <a href="/erte-paro">ERTE y paro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© {new Date().getFullYear()} Belvancy. Contenido informativo, no constituye asesoramiento jurídico.</span>
+      <span>
+        <a href="/sobre-mi">Sobre mí</a> · <a href="/contacto">Contacto</a> · <a href="/aviso-legal">Aviso legal</a> · <a href="/politica-privacidad">Privacidad</a> · <a href="/cookies">Cookies</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

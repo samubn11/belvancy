@@ -1,0 +1,3 @@
+# Sustituye pub-0000000000000000 por tu Publisher ID real cuando AdSense te lo asigne.
+# Lo encontrarás en tu cuenta de AdSense > Cuenta > Información de la cuenta.
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

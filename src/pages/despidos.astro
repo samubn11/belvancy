@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const proximos = [
+  'Diferencias entre despido objetivo, disciplinario e improcedente',
+  'Cómo calcular la indemnización por despido improcedente',
+  'Modelo de carta de despido disciplinario',
+  'Cómo impugnar un despido: plazos y pasos',
+];
+---
+<Layout title="Despidos" description="Guías sobre tipos de despido, indemnización y plazos en España.">
+  <div class="article">
+    <p class="eyebrow">Categoría</p>
+    <h1>Despidos</h1>
+    <p>Todo lo que necesitas saber si te han despedido o crees que puede pasar: tipos de despido, cómo se calcula la indemnización y qué plazos tienes para reclamar.</p>
+
+    <div class="legal-note">
+      Esta sección está en construcción. Aquí irán publicándose las guías detalladas.
+      Mientras tanto, puedes usar la <a href="/finiquitos">calculadora de finiquito</a>.
+    </div>
+
+    <h2>Próximas guías</h2>
+    <ul>
+      {proximos.map((t) => <li>{t}</li>)}
+    </ul>
+  </div>
+</Layout>

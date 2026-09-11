@@ -1,0 +1,61 @@
+---
+const { compact = false } = Astro.props;
+---
+<div class="card calc" id="calc-finiquito">
+  {!compact && <h2>Calculadora de finiquito</h2>}
+  <label for="cf-salario">Salario bruto mensual (€)</label>
+  <input type="number" id="cf-salario" min="0" step="0.01" placeholder="Ej. 1400" />
+
+  <label for="cf-dias-mes">Días trabajados sin cobrar este mes</label>
+  <input type="number" id="cf-dias-mes" min="0" max="31" placeholder="Ej. 12" />
+
+  <label for="cf-vacaciones">Días de vacaciones no disfrutados</label>
+  <input type="number" id="cf-vacaciones" min="0" step="0.5" placeholder="Ej. 8" />
+
+  <label for="cf-extra">Días acumulados para pagas extra (si no están prorrateadas)</label>
+  <input type="number" id="cf-extra" min="0" placeholder="Ej. 90" />
+
+  <button type="button" class="btn" id="cf-calcular">Calcular finiquito</button>
+
+  <div class="result" id="cf-resultado">
+    <div class="figure-label">Finiquito estimado</div>
+    <div class="figure" id="cf-total">0 €</div>
+    <p style="font-size:0.85rem; color:var(--ink-soft); margin-top:8px;">
+      Días trabajados: <span id="cf-out-dias"></span> ·
+      Vacaciones: <span id="cf-out-vac"></span> ·
+      Pagas extra: <span id="cf-out-extra"></span>
+    </p>
+  </div>
+
+  <p class="disclaimer" style="margin-top:16px;">
+    Estimación orientativa con la fórmula estándar (mes de 30 días). No incluye
+    conceptos especiales de tu convenio colectivo ni indemnización por despido.
+    Consulta siempre tu nómina y tu convenio, o a un graduado social, antes de firmar nada.
+  </p>
+</div>
+
+<script>
+  function euros(n: number) {
+    return n.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
+  }
+
+  const btn = document.getElementById('cf-calcular');
+  btn?.addEventListener('click', () => {
+    const salario = parseFloat((document.getElementById('cf-salario') as HTMLInputElement).value) || 0;
+    const diasMes = parseFloat((document.getElementById('cf-dias-mes') as HTMLInputElement).value) || 0;
+    const vacaciones = parseFloat((document.getElementById('cf-vacaciones') as HTMLInputElement).value) || 0;
+    const diasExtra = parseFloat((document.getElementById('cf-extra') as HTMLInputElement).value) || 0;
+
+    const diario = salario / 30;
+    const parteMes = diario * diasMes;
+    const parteVacaciones = diario * vacaciones;
+    const parteExtra = ((salario * 2) / 365) * diasExtra;
+    const total = parteMes + parteVacaciones + parteExtra;
+
+    (document.getElementById('cf-total') as HTMLElement).textContent = euros(total);
+    (document.getElementById('cf-out-dias') as HTMLElement).textContent = euros(parteMes);
+    (document.getElementById('cf-out-vac') as HTMLElement).textContent = euros(parteVacaciones);
+    (document.getElementById('cf-out-extra') as HTMLElement).textContent = euros(parteExtra);
+    document.getElementById('cf-resultado')?.classList.add('visible');
+  });
+</script>
