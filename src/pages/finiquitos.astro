@@ -2,12 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import CalculadoraFiniquito from '../components/CalculadoraFiniquito.astro';
 
----
-import Layout from '../layouts/Layout.astro';
-import CalculadoraFiniquito from '../components/CalculadoraFiniquito.astro';
+const proximos = [
+  'Qué es el finiquito y qué debe incluir por ley',
+  'Cómo calcular el finiquito paso a paso',
+  'Cuánto tarda la empresa en pagar el finiquito',
+  'Baja por enfermedad: cómo afecta a tu finiquito',
+];
 ---
 
-<Layout title="Calculadora de Finiquito 2026 | Belvancy" description="Qué es el finiquito, qué debe incluir y calculadora gratuita para estimarlo.">
+<Layout title="Finiquitos" description="Qué es el finiquito, qué debe incluir y calculadora para estimarlo.">
   <div class="article">
     <p class="eyebrow">Categoría</p>
     <h1>Finiquitos</h1>
@@ -19,13 +22,9 @@ import CalculadoraFiniquito from '../components/CalculadoraFiniquito.astro';
   </div>
 
   <div class="article" style="padding-top:0;">
-    <h2>Guías sobre finiquitos</h2>
+    <h2>Próximas guías</h2>
     <ul>
-      <li>
-        <a href="/blog/como-calcular-finiquito-paso-a-paso-2026">
-          Cómo calcular el finiquito paso a paso en 2026 (Ejemplo práctico)
-        </a>
-      </li>
+      {proximos.map((t) => <li>{t}</li>)}
     </ul>
   </div>
 </Layout>
