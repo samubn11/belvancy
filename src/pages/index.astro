@@ -1,14 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CalculadoraFiniquito from '../components/CalculadoraFiniquito.astro';
+import Icon from '../components/Icon.astro';
 
 const categorias = [
-  { href: '/despidos', nombre: 'Despidos', desc: 'Objetivo, improcedente, disciplinario, plazos e indemnización.' },
-  { href: '/finiquitos', nombre: 'Finiquitos', desc: 'Qué debe incluir, cómo se calcula, cuándo se cobra.' },
-  { href: '/nominas', nombre: 'Nóminas', desc: 'Conceptos, deducciones, errores habituales.' },
-  { href: '/contratos', nombre: 'Contratos', desc: 'Tipos de contrato, periodo de prueba, conversión a indefinido.' },
-  { href: '/seguridad-social', nombre: 'Seguridad Social', desc: 'Bajas, prestaciones, cotización.' },
-  { href: '/erte-paro', nombre: 'ERTE y paro', desc: 'Requisitos, cuantías, plazos para solicitar.' },
+  { href: '/despidos', nombre: 'Despidos', desc: 'Objetivo, improcedente, disciplinario, plazos e indemnización.', icon: 'door' },
+  { href: '/finiquitos', nombre: 'Finiquitos', desc: 'Qué debe incluir, cómo se calcula, cuándo se cobra.', icon: 'receipt' },
+  { href: '/nominas', nombre: 'Nóminas', desc: 'Conceptos, deducciones, errores habituales.', icon: 'document' },
+  { href: '/contratos', nombre: 'Contratos', desc: 'Tipos de contrato, periodo de prueba, conversión a indefinido.', icon: 'handshake' },
+  { href: '/seguridad-social', nombre: 'Seguridad Social', desc: 'Bajas, prestaciones, cotización.', icon: 'shield' },
+  { href: '/erte-paro', nombre: 'ERTE y paro', desc: 'Requisitos, cuantías, plazos para solicitar.', icon: 'umbrella' },
 ];
 ---
 <Layout title="Inicio">
@@ -23,14 +24,40 @@ const categorias = [
     </div>
   </section>
 
+  <section class="features">
+    <div class="wrap grid">
+      <div class="feature">
+        <div class="icon-badge"><Icon name="book" /></div>
+        <h3>Citado, no inventado</h3>
+        <p>Cada guía se apoya en el Estatuto de los Trabajadores y la Ley General de la Seguridad Social, con el artículo exacto.</p>
+      </div>
+      <div class="feature">
+        <div class="icon-badge"><Icon name="scale" /></div>
+        <h3>Sin lenguaje complicado</h3>
+        <p>Explicado como se lo contaría a un amigo, sin perder el rigor de fondo.</p>
+      </div>
+      <div class="feature">
+        <div class="icon-badge"><Icon name="check" /></div>
+        <h3>Calculadoras reales</h3>
+        <p>No solo teoría: herramientas para que sepas la cifra antes de firmar nada.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="index">
     <div class="wrap">
       <h2>Explora por tema</h2>
       <ul class="toc">
         {categorias.map((c) => (
           <li>
-            <a href={c.href}>{c.nombre}</a>
-            <span class="desc">{c.desc}</span>
+            <a href={c.href}>
+              <span class="toc-icon"><Icon name={c.icon} size={19} /></span>
+              <span class="toc-text">
+                <strong>{c.nombre}</strong>
+                <span class="desc">{c.desc}</span>
+              </span>
+              <span class="arrow">→</span>
+            </a>
           </li>
         ))}
       </ul>

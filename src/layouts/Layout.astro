@@ -1,8 +1,10 @@
 ---
 import '../styles/global.css';
+import Icon from '../components/Icon.astro';
 
 const { title, description } = Astro.props;
 const fullTitle = title ? `${title} · Belvancy` : 'Belvancy — Derecho laboral explicado sin rodeos';
+const desc = description || 'Guías claras y calculadoras sobre despidos, finiquitos, nóminas y prestaciones en España.';
 ---
 <!doctype html>
 <html lang="es">
@@ -10,7 +12,13 @@ const fullTitle = title ? `${title} · Belvancy` : 'Belvancy — Derecho laboral
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{fullTitle}</title>
-  <meta name="description" content={description || 'Guías claras y calculadoras sobre despidos, finiquitos, nóminas y prestaciones en España.'} />
+  <meta name="description" content={desc} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={desc} />
+  <meta property="og:site_name" content="Belvancy" />
+  <meta name="theme-color" content="#2F5D50" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -20,7 +28,7 @@ const fullTitle = title ? `${title} · Belvancy` : 'Belvancy — Derecho laboral
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a href="/" class="brand">Belvancy<small>Derecho laboral, explicado</small></a>
+      <a href="/" class="brand"><span class="brand-mark"><Icon name="seal" size={20} /></span>Belvancy<small>Derecho laboral, explicado</small></a>
       <nav class="main-nav">
         <a href="/despidos">Despidos</a>
         <a href="/finiquitos">Finiquitos</a>

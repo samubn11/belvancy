@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 
 const proximos = [
   'Tipos de contrato de trabajo en España',
@@ -10,6 +11,7 @@ const proximos = [
 ---
 <Layout title="Contratos" description="Tipos de contrato laboral, periodo de prueba y conversión a indefinido.">
   <div class="article">
+    <div class="icon-badge" style="margin-bottom:16px;"><Icon name="handshake" /></div>
     <p class="eyebrow">Categoría</p>
     <h1>Contratos</h1>
     <p>Qué tipos de contrato existen, qué implica cada uno y cuáles son tus derechos durante el periodo de prueba.</p>
@@ -17,7 +19,7 @@ const proximos = [
       Sección en construcción. Próximamente, guías detalladas por tipo de contrato.
     </div>
     <h2>Próximas guías</h2>
-    <ul>
+    <ul class="guide-index">
       {proximos.map((t) => <li>{t}</li>)}
     </ul>
   </div>

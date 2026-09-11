@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CalculadoraFiniquito from '../components/CalculadoraFiniquito.astro';
+import Icon from '../components/Icon.astro';
 
 const proximos = [
   'Qué es el finiquito y qué debe incluir por ley',
@@ -11,6 +12,7 @@ const proximos = [
 ---
 <Layout title="Finiquitos" description="Qué es el finiquito, qué debe incluir y calculadora para estimarlo.">
   <div class="article">
+    <div class="icon-badge" style="margin-bottom:16px;"><Icon name="receipt" /></div>
     <p class="eyebrow">Categoría</p>
     <h1>Finiquitos</h1>
     <p>El finiquito es la liquidación de todo lo que la empresa te debe al terminar la relación laboral: días trabajados, vacaciones no disfrutadas y parte proporcional de pagas extra.</p>
@@ -22,7 +24,7 @@ const proximos = [
 
   <div class="article" style="padding-top:0;">
     <h2>Próximas guías</h2>
-    <ul>
+    <ul class="guide-index">
       {proximos.map((t) => <li>{t}</li>)}
     </ul>
   </div>

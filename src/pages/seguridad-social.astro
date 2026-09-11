@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 
 const proximos = [
   'Baja por enfermedad común: requisitos y duración',
@@ -10,6 +11,7 @@ const proximos = [
 ---
 <Layout title="Seguridad Social" description="Bajas, prestaciones y cotización a la Seguridad Social.">
   <div class="article">
+    <div class="icon-badge" style="margin-bottom:16px;"><Icon name="shield" /></div>
     <p class="eyebrow">Categoría</p>
     <h1>Seguridad Social</h1>
     <p>Bajas médicas, prestaciones y cotización: cómo funciona el sistema y qué te corresponde en cada situación.</p>
@@ -17,7 +19,7 @@ const proximos = [
       Sección en construcción. Próximamente, guías detalladas sobre prestaciones.
     </div>
     <h2>Próximas guías</h2>
-    <ul>
+    <ul class="guide-index">
       {proximos.map((t) => <li>{t}</li>)}
     </ul>
   </div>

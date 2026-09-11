@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
 
 const proximos = [
   'ERTE: derechos del trabajador y cálculo de la prestación',
@@ -10,6 +11,7 @@ const proximos = [
 ---
 <Layout title="ERTE y paro" description="Requisitos y cuantías del ERTE y la prestación por desempleo.">
   <div class="article">
+    <div class="icon-badge" style="margin-bottom:16px;"><Icon name="umbrella" /></div>
     <p class="eyebrow">Categoría</p>
     <h1>ERTE y paro</h1>
     <p>Requisitos, plazos y cuantías de la prestación por desempleo y del ERTE.</p>
@@ -17,7 +19,7 @@ const proximos = [
       Sección en construcción. Próximamente, guías detalladas y simulador de prestación.
     </div>
     <h2>Próximas guías</h2>
-    <ul>
+    <ul class="guide-index">
       {proximos.map((t) => <li>{t}</li>)}
     </ul>
   </div>
